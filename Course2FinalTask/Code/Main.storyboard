@@ -248,11 +248,11 @@
             </objects>
             <point key="canvasLocation" x="571.01449275362324" y="23.4375"/>
         </scene>
-        <!--Item-->
+        <!--Feed-->
         <scene sceneID="dxv-3P-wch">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P0E-Fe-Nv9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="dkB-cT-KNT"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="feed" id="dkB-cT-KNT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="smM-Tz-qT1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -267,11 +267,11 @@
             </objects>
             <point key="canvasLocation" x="1413.0434782608697" y="-474.45652173913049"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="15p-YH-1vi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oai-Vk-LvM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="RXT-Ng-0p0"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="RXT-Ng-0p0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fdj-Qk-cdu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -290,6 +290,8 @@
     <resources>
         <image name="bigLike" width="100" height="100"/>
         <image name="car1" width="466" height="466"/>
+        <image name="feed" width="25" height="25"/>
+        <image name="profile" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
