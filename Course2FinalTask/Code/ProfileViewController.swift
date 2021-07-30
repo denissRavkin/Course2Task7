@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DataProvider
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var profilePhoto: UIImageView! {
@@ -18,6 +19,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var followers: UIButton!
     @IBOutlet weak var following: UIButton!
     @IBOutlet weak var photosCollectionView: UICollectionView!
+    
+    var userId: User.Identifier!
     
     override func viewDidLoad() {
         super.viewDidLoad()
