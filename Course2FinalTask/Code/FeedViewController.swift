@@ -57,6 +57,7 @@ extension FeedViewController: FeedTableViewCellDelegate {
     func pushUserListViewController(withIds ids: [User.Identifier]) {
         let vc = storyBoard.instantiateViewController(withIdentifier: "UserListViewController") as! UserListViewController
         vc.users = DataProviders.shared.usersDataProvider.users(withIds: ids)
+        vc.title = "Likes"
         navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -18,16 +18,7 @@ class UserListViewController: UIViewController {
         }
     }
     
-    var usersIds: [User.Identifier] = [] {
-        didSet {
-            for userId in usersIds {
-                if let user = DataProviders.shared.usersDataProvider.user(with: userId) {
-                    users.append(user)
-                }
-            }
-        }
-    }
-    private var users: [User] = []
+    var users: [User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +43,7 @@ extension UserListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-        vc.userId = usersIds[indexPath.row]
+        vc.userId = users[indexPath.row].id
         navigationController?.pushViewController(vc, animated: true)
     }
 }

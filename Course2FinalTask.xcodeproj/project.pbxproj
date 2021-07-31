@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2761AC0C26B481E80040C8AF /* ProfileCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2761AC0B26B481E80040C8AF /* ProfileCollectionReusableView.swift */; };
+		2789339E26B534FE002D9CC7 /* UsersDataProviderProtocol+usersWithIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789339D26B534FE002D9CC7 /* UsersDataProviderProtocol+usersWithIds.swift */; };
 		279F968026AEA484007491FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 279F967F26AEA484007491FA /* Main.storyboard */; };
 		279F968226AEBB03007491FA /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F968126AEBB03007491FA /* FeedViewController.swift */; };
 		279F968426AEBC80007491FA /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F968326AEBC80007491FA /* FeedTableViewCell.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2761AC0B26B481E80040C8AF /* ProfileCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionReusableView.swift; sourceTree = "<group>"; };
+		2789339D26B534FE002D9CC7 /* UsersDataProviderProtocol+usersWithIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsersDataProviderProtocol+usersWithIds.swift"; sourceTree = "<group>"; };
 		279F967F26AEA484007491FA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		279F968126AEBB03007491FA /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		279F968326AEBC80007491FA /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
@@ -96,9 +100,11 @@
 				279F968126AEBB03007491FA /* FeedViewController.swift */,
 				279F968326AEBC80007491FA /* FeedTableViewCell.swift */,
 				279F968F26B1C553007491FA /* ProfileViewController.swift */,
+				2761AC0B26B481E80040C8AF /* ProfileCollectionReusableView.swift */,
 				279F969126B1C593007491FA /* UserPhotoCollectionViewCell.swift */,
 				279F969326B1E0F0007491FA /* UserListViewController.swift */,
 				279F969526B1E1ED007491FA /* UserTableViewCell.swift */,
+				2789339D26B534FE002D9CC7 /* UsersDataProviderProtocol+usersWithIds.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -193,8 +199,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				279F969226B1C593007491FA /* UserPhotoCollectionViewCell.swift in Sources */,
+				2761AC0C26B481E80040C8AF /* ProfileCollectionReusableView.swift in Sources */,
 				279F968226AEBB03007491FA /* FeedViewController.swift in Sources */,
 				279F969626B1E1ED007491FA /* UserTableViewCell.swift in Sources */,
+				2789339E26B534FE002D9CC7 /* UsersDataProviderProtocol+usersWithIds.swift in Sources */,
 				279F968426AEBC80007491FA /* FeedTableViewCell.swift in Sources */,
 				279F969026B1C553007491FA /* ProfileViewController.swift in Sources */,
 				74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */,

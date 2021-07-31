@@ -10,21 +10,22 @@ import UIKit
 import DataProvider
 
 class ProfileViewController: UIViewController {
-    @IBOutlet weak var profilePhoto: UIImageView! {
-        didSet {
-            profilePhoto.layer.cornerRadius = profilePhoto.frame.width / 2
-        }
-    }
-    @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var followers: UIButton!
-    @IBOutlet weak var following: UIButton!
     @IBOutlet weak var photosCollectionView: UICollectionView!
     
-    var userId: User.Identifier!
+    var userId: User.Identifier! {
+        didSet {
+            if let user = DataProviders.shared.usersDataProvider.user(with: userId) {
+                self.user = user
+            }
+        }
+    }
+    private var user = DataProviders.shared.usersDataProvider.currentUser()
+    private lazy var userPosts = DataProviders.shared.postsDataProvider.findPosts(by: user.id) ?? []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPhotosCollectionView()
+        self.title = user.username
     }
     
     func setupPhotosCollectionView() {
@@ -34,19 +35,41 @@ class ProfileViewController: UIViewController {
         collectionViewLayout.itemSize = CGSize(width: view.frame.width/3, height: view.frame.width/3)
         collectionViewLayout.minimumLineSpacing = 0
         collectionViewLayout.minimumInteritemSpacing = 0
+        collectionViewLayout.headerReferenceSize = CGSize(width: photosCollectionView.frame.size.width, height: 86)
         photosCollectionView.collectionViewLayout = collectionViewLayout
     }
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return userPosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserPhotoCollectionViewCell", for: indexPath) as! UserPhotoCollectionViewCell
-        cell.configure(photo: #imageLiteral(resourceName: "car1"))
+        cell.configure(photo: userPosts[indexPath.row].image)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileCollectionReusableView", for: indexPath) as! ProfileCollectionReusableView
+            headerView.configure(user: user, delegate: self)
+            return headerView
+        default:
+            assert(false, "Invalid element type")
+        }
+    }
+}
+
+extension ProfileViewController: ProfileCollectionReusableViewDelegate {
+    func pushUserListViewController(with users: [User], vcTitle: String) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "UserListViewController") as! UserListViewController
+        vc.users = users
+        vc.title = vcTitle
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
