@@ -107,7 +107,9 @@ class FeedTableViewCell: UITableViewCell {
         animation.keyTimes = [0.1, 0.3, 0.6]
         animation.values   = [  1,   1,   0]
         self.bigLikeImageView.layer.add(animation, forKey: nil)
-        likeButtonPressed()
+        if !post.currentUserLikesThisPost {
+            likeButtonPressed()
+        }
     }
     
     @objc func tapOnAvatarOrUserName() {
