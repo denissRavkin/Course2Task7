@@ -17,15 +17,13 @@ class FeedViewController: UIViewController {
             feedTableView.allowsSelection = false
         }
     }
-    var posts: [Post] = [] {
-        didSet {
-            feedTableView.reloadData()
-        }
-    }
+    var posts: [Post] = [] 
+    private let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         posts = DataProviders.shared.postsDataProvider.feed()
+        feedTableView.reloadData()
     }
 }
 
@@ -51,16 +49,14 @@ extension FeedViewController: FeedTableViewCellDelegate {
     }
     
     func pushProfileViewController(withUserId id: User.Identifier) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
         vc.userId = id
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func pushUserListViewController(withIds ids: [User.Identifier]) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "UserListViewController") as! UserListViewController
-        vc.usersIds = ids
+        vc.users = DataProviders.shared.usersDataProvider.users(withIds: ids)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

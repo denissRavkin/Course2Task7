@@ -100,15 +100,13 @@ class FeedTableViewCell: UITableViewCell {
     }
     
     @objc func doubleTapOnPostImage() {
-        DispatchQueue.main.async {
-            let animation = CAKeyframeAnimation(keyPath: "opacity")
-            animation.timingFunctions = [CAMediaTimingFunction(name: .linear),
-                                         CAMediaTimingFunction(name: .linear),
-                                         CAMediaTimingFunction(name: .easeOut)]
-            animation.keyTimes = [0.1, 0.3, 0.6]
-            animation.values   = [1, 1, 0]
-            self.bigLikeImageView.layer.add(animation, forKey: nil)
-        }
+        let animation = CAKeyframeAnimation(keyPath: "opacity")
+        animation.timingFunctions = [CAMediaTimingFunction(name: .linear),
+                                     CAMediaTimingFunction(name: .linear),
+                                     CAMediaTimingFunction(name: .easeOut)]
+        animation.keyTimes = [0.1, 0.3, 0.6]
+        animation.values   = [  1,   1,   0]
+        self.bigLikeImageView.layer.add(animation, forKey: nil)
         likeButtonPressed()
     }
     
